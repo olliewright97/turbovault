@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>TurboVault – AI-Powered UGC Ads</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    :root{
+      --tv-purple:#6C3BFF;
+      --tv-blue:#2438A5;
+      --tv-cyan:#38BDF8;
+      --tv-pink:#C084FC;
+      --tv-surface:rgba(255,255,255,0.05);
+      --tv-border:rgba(255,255,255,0.08);
+    }
+    body{font-family:system-ui,Inter,Helvetica,Arial,sans-serif;}
+    
+    /* Smooth FAQ animations */
+    .faq-content {
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+      will-change: transform, opacity;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-20px);
+      padding-top: 0;
+      padding-bottom: 0;
+      animation: faqAnimation 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-play-state: paused;
+    }
+    
+    .faq-content.open {
+      animation-play-state: running;
+      animation-direction: normal;
+    }
+    
+    .faq-content.closing {
+      animation-play-state: running;
+      animation-direction: reverse;
+    }
+    
+    @keyframes faqAnimation {
+      to {
+        max-height: 200px;
+        opacity: 1;
+        transform: translateY(0);
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+    }
+    
+    .faq-button {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .faq-button:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Smooth card hover effects */
+    .feature-card {
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+    
+    .feature-card:hover {
+      transform: translate3d(0, 0, 0) scale(1.02);
+    }
+  </style>
+</head>
+<body class="text-white bg-[radial-gradient(ellipse_at_top_right,var(--tv-purple)_0%,var(--tv-blue)_100%)] leading-relaxed">
+
+  <section id="hero" class="min-h-screen flex flex-col items-center justify-start pt-20 text-center gap-8">
+    <!-- Logo -->
+    <img src="assets/logo.png" class="w-96 mx-auto">
+    
+    <!-- Pill Badge -->
+    <div class="bg-white/10 px-4 py-1 rounded-full text-sm">
+      🚀 5 Founder's Access seats – $499/month for life
+    </div>
+    
+    <!-- Main Heading -->
+    <div class="space-y-4">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+        <span class="text-[var(--tv-pink)]">Prompt.</span> 
+        <span class="text-[var(--tv-cyan)]">Approve.</span> 
+        <span class="text-[var(--tv-cyan)]">Post.</span>
+      </h1>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+        UGC ads without the stress
+      </h2>
+    </div>
+    
+    <!-- Subhead -->
+    <p class="max-w-xl mx-auto text-lg sm:text-xl md:text-2xl opacity-90 px-4">
+      Zero agency headaches. Prompt-based creation system – you tell us what you want, our AI generates it.
+    </p>
+    
+    <!-- CTA Button -->
+    <a href="#" class="bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] rounded-lg px-6 py-3 mt-4 shadow-lg hover:opacity-90 transition duration-300 font-semibold text-lg">
+      Book Intro Call
+    </a>
+    
+    <!-- Micro-copy -->
+    <p class="text-xs opacity-80">
+      First ads delivered within 72 hours – guaranteed
+    </p>
+  </section>
+
+  <section id="included" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">What's Included</h2>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto">
+          Everything you need to create high-converting UGC ads without the traditional agency overhead
+        </p>
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Prompt-based creation system -->
+        <div class="feature-card p-8 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-3 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Prompt-based creation system</h3>
+          <p class="opacity-80">You tell us what you want, our AI generates it</p>
+        </div>
+
+        <!-- Card 2: Brand-matched avatars & scripts -->
+        <div class="feature-card p-8 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-3 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Brand-matched avatars & scripts</h3>
+          <p class="opacity-80">Consistent with your brand identity and messaging</p>
+        </div>
+
+        <!-- Card 3: 2 rounds of revisions / month -->
+        <div class="feature-card p-8 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-3 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">2 rounds of revisions / month</h3>
+          <p class="opacity-80">Perfect your content with included revision rounds</p>
+        </div>
+
+        <!-- Card 4: Delivered via your own dashboard -->
+        <div class="feature-card p-8 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-3 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Delivered via your own dashboard</h3>
+          <p class="opacity-80">No email chains – everything in one place</p>
+        </div>
+
+        <!-- Card 5: Full refund guarantee -->
+        <div class="feature-card p-8 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-3 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Full refund guarantee</h3>
+          <p class="opacity-80">Anytime before your first ad goes live</p>
+        </div>
+
+        <!-- Card 6: State-of-the-art AI models -->
+        <div class="feature-card p-8 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-3 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">State-of-the-art AI models</h3>
+          <p class="opacity-80">Content quality improves automatically as AI models advance</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="onramp" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">Getting Started</h2>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto">
+          Simple 3-step process to get your first UGC ads live
+        </p>
+      </div>
+
+      <!-- Steps Container -->
+      <div class="flex flex-col lg:flex-row gap-6">
+        
+        <!-- Step 1: Book 15-minute intro call -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur w-full lg:w-1/3 relative transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-sm font-semibold absolute top-4 left-4">
+            1
+          </div>
+          <div class="pt-8">
+            <h3 class="font-semibold text-lg">Book 15-minute intro call</h3>
+            <p class="opacity-80">Quick alignment on your goals and brand needs</p>
+          </div>
+        </div>
+
+        <!-- Step 2: Upload your brand assets -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur w-full lg:w-1/3 relative transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-sm font-semibold absolute top-4 left-4">
+            2
+          </div>
+          <div class="pt-8">
+            <h3 class="font-semibold text-lg">Upload your brand assets</h3>
+            <p class="opacity-80">Provide your visuals and brand guidelines</p>
+          </div>
+        </div>
+
+        <!-- Step 3: First ads delivered within 72 hours -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur w-full lg:w-1/3 relative transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-sm font-semibold absolute top-4 left-4">
+            3
+          </div>
+          <div class="pt-8">
+            <h3 class="font-semibold text-lg">First ads delivered within 72 hours</h3>
+            <p class="opacity-80">Guaranteed</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="py-24 text-center">
+    <div class="max-w-6xl mx-auto px-4">
+      <!-- Section Header -->
+      <div class="mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">Founder's Access Pricing</h2>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto">
+          Limited-time offer for early adopters
+        </p>
+      </div>
+
+      <!-- Pricing Card -->
+      <div class="feature-card inline-block p-8 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-4 w-full max-w-md backdrop-blur transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+        
+        <!-- Badge -->
+        <div class="text-sm font-medium">
+          🚀 Founder's Access
+        </div>
+
+        <!-- Title -->
+        <h3 class="text-2xl font-bold">TurboVault Pro</h3>
+
+        <!-- Price -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-center gap-2">
+            <span class="line-through opacity-70 text-red-500 text-2xl font-bold">$799</span>
+            <span class="text-4xl font-bold">$499</span>
+            <span class="text-sm opacity-80">/month for life</span>
+          </div>
+        </div>
+
+        <!-- Features List -->
+        <ul class="space-y-2 text-left">
+          <li class="flex items-start gap-2">
+            <span>✅</span>
+            <span>5 UGC ads per month</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✅</span>
+            <span>Prompt-based creation system</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✅</span>
+            <span>Brand-matched avatars & scripts</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✅</span>
+            <span>2 rounds of revisions included</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✅</span>
+            <span>Dedicated dashboard access</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✅</span>
+            <span>Full refund guarantee</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span>✅</span>
+            <span>State-of-the-art AI models</span>
+          </li>
+        </ul>
+
+        <!-- CTA Button -->
+        <a href="#" class="block bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] rounded-lg px-6 py-3 mt-6 shadow-lg hover:opacity-90 transition duration-300 font-semibold">
+          Book Intro Call
+        </a>
+
+        <!-- Micro-copy -->
+        <p class="text-xs opacity-80">
+          30-day minimum, then month-to-month
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+      </div>
+
+      <!-- FAQ Items -->
+      <div class="space-y-4" x-data="{ openItem: null }">
+        
+        <div class="bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] rounded-xl backdrop-blur overflow-hidden">
+          <button 
+            @click="openItem = openItem === 1 ? null : 1"
+            class="w-full text-left font-medium cursor-pointer flex justify-between items-center p-6 faq-button"
+          >
+            <span>Who owns the content?</span>
+            <svg 
+              :class="openItem === 1 ? 'rotate-180' : ''"
+              class="w-5 h-5 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div 
+            x-show="openItem === 1"
+            x-transition:enter="transition duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            x-transition:enter-start="opacity-0 translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 translate-y-4"
+            class="px-6 pb-6"
+          >
+            <p>You do, 100%. All content created is exclusively yours with full commercial rights.</p>
+          </div>
+        </div>
+
+        <div class="bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] rounded-xl backdrop-blur overflow-hidden">
+          <button 
+            @click="openItem = openItem === 2 ? null : 2"
+            class="w-full text-left font-medium cursor-pointer flex justify-between items-center p-6 faq-button"
+          >
+            <span>How long does it take to get my first ads?</span>
+            <svg 
+              :class="openItem === 2 ? 'rotate-180' : ''"
+              class="w-5 h-5 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div 
+            x-show="openItem === 2"
+            x-transition:enter="transition duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            x-transition:enter-start="opacity-0 translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 translate-y-4"
+            class="px-6 pb-6"
+          >
+            <p>We guarantee delivery of your first ads within 72 hours after your intro call and brand asset upload.</p>
+          </div>
+        </div>
+
+        <div class="bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] rounded-xl backdrop-blur overflow-hidden">
+          <button 
+            @click="openItem = openItem === 3 ? null : 3"
+            class="w-full text-left font-medium cursor-pointer flex justify-between items-center p-6 faq-button"
+          >
+            <span>Can I cancel anytime?</span>
+            <svg 
+              :class="openItem === 3 ? 'rotate-180' : ''"
+              class="w-5 h-5 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <div 
+            x-show="openItem === 3"
+            x-transition:enter="transition duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            x-transition:enter-start="opacity-0 translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 translate-y-4"
+            class="px-6 pb-6"
+          >
+            <p>Yes, you can cancel anytime after the 30-day minimum period. We also offer a full refund guarantee before your first ad goes live.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">Development Roadmap</h2>
+        <p class="text-xl opacity-90 max-w-3xl mx-auto">
+          Exciting features coming to enhance your video creation experience
+        </p>
+      </div>
+
+      <!-- Roadmap Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Custom Brand Profiles -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Custom Brand Profiles</h3>
+          <p class="opacity-80">Save your tone of voice, product info and visuals once – the platform remembers everything for future videos.</p>
+        </div>
+
+        <!-- Card 2: GPT Integration -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">GPT Integration</h3>
+          <p class="opacity-80">Discuss captions and posting strategy with your brand's own AI assistant – built right into your dashboard.</p>
+        </div>
+
+        <!-- Card 3: Voiceover Selection -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Voiceover Selection</h3>
+          <p class="opacity-80">Choose from a range of AI voices – and soon, clone your own to match your brand perfectly.</p>
+        </div>
+
+        <!-- Card 4: One Click Captions -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">One Click Captions</h3>
+          <p class="opacity-80">Pick from a curated set of caption styles to fit with your brand's visual identity.</p>
+        </div>
+
+        <!-- Card 5: DIY Mode -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">DIY Mode</h3>
+          <p class="opacity-80">Prompt and generate videos on demand – no delays.</p>
+        </div>
+
+        <!-- Card 6: Plus many extra features -->
+        <div class="feature-card p-6 rounded-2xl bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] space-y-2 backdrop-blur text-center transition-all duration-500 ease-out hover:shadow-xl hover:shadow-[var(--tv-purple)]/15 hover:ring-[var(--tv-purple)]/25">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center text-xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-lg">Plus many extra features</h3>
+          <p class="opacity-80">Many more exciting features in the longer-term roadmap to enhance your video creation experience.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">About Me</h2>
+      </div>
+
+      <!-- About Card -->
+      <div class="bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] rounded-2xl p-10 max-w-3xl mx-auto text-center space-y-6 backdrop-blur">
+        
+        <!-- Profile Image -->
+        <img src="assets/founder.jpg" class="h-24 w-24 rounded-full mx-auto ring-4 ring-[var(--tv-purple)] object-cover transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-125 hover:shadow-2xl">
+        
+        <!-- Bio Paragraphs -->
+        <p class="text-lg leading-relaxed">
+          Hi, I'm <strong>Ollie</strong>, and I've edited over <strong><span style="color:#c084fc">1,000 short-form social media videos</span></strong> for businesses.
+        </p>
+        
+        <p class="text-lg leading-relaxed">
+          For my main gig, I'm trusted by <strong>Dan Martell</strong> to produce and edit his short-form social video content.
+        </p>
+        
+        <p class="text-lg leading-relaxed">
+          I'm at the forefront of AI video development, and spend part of my time at work building custom solutions in-house—now I've decided to build them for you too.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="guarantee" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Guarantee Card -->
+      <div class="bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] rounded-2xl p-12 max-w-4xl mx-auto text-center space-y-4 backdrop-blur">
+        <!-- Icon -->
+        <div class="w-14 h-14 rounded-full bg-gradient-to-r from-[var(--tv-purple)] to-[var(--tv-cyan)] flex items-center justify-center mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+          </svg>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="font-bold text-2xl md:text-3xl">Brand-Safe Guarantee</h2>
+
+        <!-- Body Copy -->
+        <p class="text-lg leading-relaxed opacity-90 max-w-3xl mx-auto">
+          All AI voices, avatars, and video assets we create are licensed exclusively to your brand in perpetuity—with full commercial rights transferred to you upon delivery. They will never be reused, resold, or repurposed for any other client.
+        </p>
+      </div>
+      <!-- Final CTA Card: Ready to Join the First 5? -->
+      <div class="bg-[var(--tv-surface)] ring-1 ring-[var(--tv-border)] rounded-2xl p-12 w-full mx-auto text-center space-y-6 backdrop-blur mt-24" style="background: linear-gradient(90deg, #612197 0%, #222760 100%);">
+        <h2 class="font-bold text-3xl md:text-4xl">Ready to Join the First 5?</h2>
+        <p class="text-lg leading-relaxed opacity-90 max-w-2xl mx-auto">
+          Secure your Founder's Access pricing before it's gone forever.
+        </p>
+        <a href="#" class="inline-block rounded-lg px-8 py-4 mt-2 font-semibold text-lg shadow-lg transition duration-300 hover:opacity-90" style="background: linear-gradient(90deg, #7D22CD 0%, #2B60EB 100%); color: white;">
+          Book Intro Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 text-sm text-center opacity-70" style="background:linear-gradient(135deg,#571C86 0%,#1D183B 100%);background-attachment:fixed;">
+    <div class="flex items-center justify-between max-w-6xl mx-auto w-full gap-6">
+      <div class="flex items-center gap-6">
+        <!-- LinkedIn -->
+        <span class="inline-block w-7 h-7 text-white opacity-90 hover:opacity-100 transition">
+          <svg viewBox="0 0 448 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.9-43.7 31.3-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.4s1.2-242.1 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.7 39.8 106.7 125.4V448z" fill="white"/></svg>
+        </span>
+        <!-- Instagram -->
+        <span class="inline-block w-7 h-7 text-white opacity-90 hover:opacity-100 transition">
+          <svg viewBox="0 0 448 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full"><rect width="400" height="400" x="24" y="56" rx="80" fill="none" stroke="white" stroke-width="40"/><circle cx="224" cy="256" r="88" fill="none" stroke="white" stroke-width="40"/><circle cx="344" cy="168" r="24" fill="white"/></svg>
+        </span>
+        <!-- TikTok -->
+        <span class="inline-block w-7 h-7 opacity-90 hover:opacity-100 transition">
+          <img src="assets/tiktok.png" alt="TikTok" class="w-full h-full object-contain" />
+        </span>
+      </div>
+      <span class="text-base">© 2025 TurboVault. All rights reserved.</span>
+      <img src="assets/logo.png" class="h-16 w-auto object-contain" alt="TurboVault Logo">
+    </div>
+  </footer>
+
+  <script>
+  /* --- TurboVault random premium gradient --- */
+
+  /* Brand palette (extend or tweak whenever) */
+  const palette = [
+    '#6C3BFF', // purple
+    '#7C3AED', // violet
+    '#8B5CF6', // purple violet
+    '#A855F7', // bright purple
+    '#9333EA', // rich purple
+    '#7C2D12'  // deep slate purple
+  ];
+
+  /* Seeded random function for consistent results */
+  function seededRandom(seed) {
+    let hash = 0;
+    for (let i = 0; i < seed.length; i++) {
+      const char = seed.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32-bit integer
+    }
+    return Math.abs(hash) / 2147483647; // Normalize to 0-1
+  }
+
+  /* Pick colors based on seed */
+  const pickSeeded = (n, seed) => {
+    const shuffled = [...palette].sort(() => seededRandom(seed + '1') - 0.5);
+    return shuffled.slice(0, n);
+  };
+
+  /* Apply consistent gradients to sections */
+  const sections = document.querySelectorAll('section');
+  
+  sections.forEach((section, index) => {
+    // Special case for hero section (first section) - use slate-y purple gradient
+    if (index === 0) {
+      section.style.background = `
+        linear-gradient(135deg, #1D265B 0%, #502B9A 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "What's Included" section (second section) - use diagonal purple gradient
+    if (index === 1) {
+      section.style.background = `
+        linear-gradient(135deg, #29184B 0%, #4D1B79 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "Getting Started" section (third section) - Fast on ramp
+    if (index === 2) {
+      section.style.background = `
+        linear-gradient(135deg, #322452 0%, #4F2777 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "Pricing" section (fourth section) - Founders Pricing
+    if (index === 3) {
+      section.style.background = `
+        linear-gradient(135deg, #4F2777 0%, #401A68 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "FAQ" section (fifth section) - Mini FAQ (same gradient as pricing)
+    if (index === 4) {
+      section.style.background = `
+        linear-gradient(135deg, #4F2777 0%, #401A68 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "Why Now" section (sixth section) - if it exists
+    if (index === 5) {
+      section.style.background = `
+        linear-gradient(135deg, #401A68 0%, #3C255F 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "Development Roadmap" section (seventh section)
+    if (index === 6) {
+      section.style.background = `
+        linear-gradient(135deg, #431B6D 0%, #2C184F 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "About Me" section (eighth section)
+    if (index === 7) {
+      section.style.background = `
+        linear-gradient(135deg, #54267C 0%, #241944 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Special case for "Brand Safe Guarantee" section (ninth section) - last sections together
+    if (index === 8) {
+      section.style.background = `
+        linear-gradient(135deg, #571C86 0%, #1D183B 100%)
+      `;
+      section.style.backgroundAttachment = 'fixed';
+      return;
+    }
+    
+    // Default case for any other sections
+    const sectionText = section.textContent.slice(0, 50);
+    const seed = `${section.id || 'section'}-${index}-${sectionText}`;
+    const [c1, c2, c3] = pickSeeded(3, seed);
+    
+    section.style.background = `
+      radial-gradient(130% 90% at 50% -20%, ${c1} 0%, ${c2} 45%, ${c3} 90%)
+    `;
+    section.style.backgroundAttachment = 'fixed';
+  });
+  
+  // Add opposite-direction gradients for specific content boxes
+  const aboutCard = document.querySelector('#about .bg-\\[var\\(--tv-surface\\)\\]');
+  if (aboutCard) {
+    aboutCard.style.background = `
+      linear-gradient(315deg, #723E98 0%, #4F3B6E 100%)
+    `;
+  }
+  
+  const guaranteeCard = document.querySelector('#guarantee .bg-\\[var\\(--tv-surface\\)\\]');
+  if (guaranteeCard) {
+    guaranteeCard.style.background = `
+      linear-gradient(315deg, #5B2788 0%, #352556 100%)
+    `;
+  }
+  </script>
+
+</body>
+</html>
